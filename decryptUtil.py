@@ -8,7 +8,7 @@ from Cryptodome.Cipher import AES
 
 def aes_cbc_decrypt(decodedPass, key, iv):
     unpad = lambda s : s[:-ord(s[len(s)-1:])]
-    crypter = AES.newÍ(key, AES.MODE_CBC, iv)
+    crypter = AES.new(key, AES.MODE_CBC, iv)
     decryptedPassword = unpad(crypter.decrypt(decodedPass))
     return decryptedPassword.decode('utf-8')
 
@@ -28,5 +28,5 @@ def decrypt(encryptedPass, secret):
 
     except Exception as e:
         print('\nError during decryption. This script is tested only for SQL Developer 18+. ---- '+ str(e) )
-    
+    print(key)
     return decrypted
